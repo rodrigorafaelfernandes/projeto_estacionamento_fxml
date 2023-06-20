@@ -90,5 +90,10 @@ public class Veiculo {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        return placa+"("+modelo+")";
+    }
     
 }

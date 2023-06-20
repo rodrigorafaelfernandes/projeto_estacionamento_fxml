@@ -2,6 +2,9 @@ package ifpr.pgua.eic.exemplo;
 
 import java.util.ArrayList;
 
+import ifpr.pgua.eic.exemplo.controllers.TelaCadastro;
+import ifpr.pgua.eic.exemplo.controllers.TelaPrincipal;
+import ifpr.pgua.eic.exemplo.controllers.TelaVisualizar;
 import ifpr.pgua.eic.exemplo.models.Estacionamento;
 import io.github.hugoperlin.navigatorfx.BaseAppNavigator;
 import io.github.hugoperlin.navigatorfx.ScreenRegistryFXML;
@@ -39,13 +42,15 @@ public class App extends BaseAppNavigator{
     /*método para indicar o nome da aplicação */
     @Override
     public String getAppTitle() {
-        return "Quiz App";
+        return "Estacionamento";
     }
 
     /*método para registrar as telas da aplicação*/
     @Override
     public void registrarTelas() {
-        
+        registraTela("PRINCIPAL", new ScreenRegistryFXML(App.class, "principal.fxml", o->new TelaPrincipal()));
+        registraTela("CADASTRO",new ScreenRegistryFXML(App.class, "cadastro.fxml",o->new TelaCadastro(gerenciador)));
+        registraTela("VISUALIZAR",new ScreenRegistryFXML(App.class, "visualizar.fxml", o->new TelaVisualizar(gerenciador)));
     }
     
 }
