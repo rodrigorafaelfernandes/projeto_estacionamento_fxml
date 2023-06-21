@@ -31,6 +31,7 @@ public class App extends BaseAppNavigator{
         super.init();
 
         gerenciador = new Estacionamento("SuperEstac", "1234-1234");
+        gerenciador.geraFakes();
     }
 
     /*método para indicar qual é a tela inicial da aplicação */

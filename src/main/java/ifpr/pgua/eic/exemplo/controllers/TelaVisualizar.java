@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 public class TelaVisualizar implements Initializable{
@@ -41,7 +42,6 @@ public class TelaVisualizar implements Initializable{
         lstVeiculos.getItems().addAll(estacionamento.listaTodosVeiculos());
     }
 
-
     @FXML
     void exibirDetalhes(MouseEvent event) {
         Veiculo veiculo = lstVeiculos.getSelectionModel().getSelectedItem();
@@ -60,8 +60,23 @@ public class TelaVisualizar implements Initializable{
 
     @FXML
     void buscar(ActionEvent event) {
-
+        filtrarVeiculos();
     }
+
+    @FXML
+    void teclar(KeyEvent event) {
+        filtrarVeiculos();
+    }
+
+    private void filtrarVeiculos(){
+        lstVeiculos.getItems().clear();
+        if(tfPlaca.getText().isEmpty()){
+            lstVeiculos.getItems().addAll(estacionamento.listaTodosVeiculos());
+        }else{
+            lstVeiculos.getItems().addAll(estacionamento.filtrarVeiculosPlaca(tfPlaca.getText()));
+        }
+    }
+
 
     @FXML
     void voltar(ActionEvent event) {
