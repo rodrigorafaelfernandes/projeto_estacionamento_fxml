@@ -25,6 +25,11 @@ public class Estacionamento {
         
     }
 
+    public void setVeiculos(ArrayList<Veiculo> lista)
+    {
+        veiculos.clear();
+        veiculos.addAll(lista);
+    }
 
     public String getNome() {
         return nome;
